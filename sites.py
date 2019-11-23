@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 '''
-Check websites to make sure they are up, are handling www/https redirects as expected,
-and have valid not-expiring-soon SSL certificates.
+Check websites to make sure they are up, are handling www/https redirects
+as expected, and have valid not-expiring-soon SSL certificates.
 
 Brian Cantoni
 
 todo:
 - move server list from here to an external yaml file
-
+- better controls to allow AWS, Twilio and Slack to be optional
 '''
 
 import argparse
@@ -59,9 +59,11 @@ def check_sites(verbose=False):
         {'url': 'http://www.readthedocs.org/', 'code': 302, 'redirect': 'http://readthedocs.org/'},
         {'url': 'http://readthedocs.org/', 'code': 302, 'redirect': 'https://readthedocs.org/'},
         {'url': 'https://readthedocs.org/', 'code': 200, 'contents': 'Technical documentation lives here'},
+
         {'url': 'http://www.python.org/', 'code': 301, 'redirect': 'https://www.python.org/'},
         {'url': 'http://python.org/', 'code': 301, 'redirect': 'https://python.org/'},
         {'url': 'https://www.python.org/', 'code': 200, 'contents': 'official home of the Python Programming Language'},
+
         {'url': 'http://thunderbird.net/', 'code': 301, 'redirect': 'https://thunderbird.net/'},
         {'url': 'http://www.thunderbird.net/', 'code': 301, 'redirect': 'https://www.thunderbird.net/'},
         {'url': 'https://www.thunderbird.net/en-US/', 'code': 200, 'contents': 'Software made to make email easier'},
