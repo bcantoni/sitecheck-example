@@ -164,7 +164,7 @@ if __name__ == '__main__':
             os.environ['S3DATA_BUCKET'],
         )
 
-        s3key = 'sitecheck-data'
+        s3key = 'sitecheck-example-data'
         if args.delete:
             s3.delete(s3key)
 
