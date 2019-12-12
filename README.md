@@ -14,10 +14,10 @@ Some comments on the most relevant parts:
 on:
   push:
   schedule:
-    - cron: '0 0,15 * * *'
+    - cron: '0 0 * * *'
 ```
 
-This sets up the action to run on any push and also on the cron schedule. The hours are UTC-based and in this example set to run twice per day.
+This sets up the action to run on any push and also on the cron schedule. The hours are UTC-based and in this example set to run once per day.
 
 ```
 - name: Set up Python 3.7
@@ -26,7 +26,7 @@ This sets up the action to run on any push and also on the cron schedule. The ho
     python-version: 3.7
 ```
 
-Here we are just using Python 3.7 because we just need one environment, but if this was really testing your Python package you could specify a list of versions here (similar to what I do in my [s3data](https://github.com/bcantoni/s3data) project).
+Here we are just using Python 3.7 because we just need one (modern) environment, but if this was really testing your Python package you could specify a list of versions here (similar to what I do in my [s3data](https://github.com/bcantoni/s3data) project).
 
 ```
 - name: Install dependencies
@@ -108,4 +108,4 @@ Now try running the script locally to make sure everything works:
 
     python sites.py -v
 
-Once it looks good, commit back to GitHub and check the [Actions](actions) tab to see how it goes. It will run each time you commit, so you can test it by committing a known bad check, then reverting back to a good state.
+Once it looks good, commit back to GitHub and check the Actions tab to see how it goes. It will run each time you commit, so you can test it by committing a known bad check, then reverting back to a good state.

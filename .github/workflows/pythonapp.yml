@@ -3,7 +3,7 @@ name: Sites Verification
 on:
   push:
   schedule:
-    - cron: '0 0,15 * * *'
+    - cron: '0 0 * * *'
 
 jobs:
   test:
