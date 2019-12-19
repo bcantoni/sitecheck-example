@@ -66,7 +66,7 @@ def check_sites(verbose=False):
 
         {'url': 'http://thunderbird.net/', 'code': 301, 'redirect': 'https://thunderbird.net/'},
         {'url': 'http://www.thunderbird.net/', 'code': 301, 'redirect': 'https://www.thunderbird.net/'},
-        {'url': 'https://www.thunderbird.net/en-US/', 'code': 200, 'contents': 'Software made to make email easier'},
+        {'url': 'https://www.thunderbird.net/en-US/', 'code': 200, 'contents': 'Creative Commons license'},
     ]
 
     errors = []
