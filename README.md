@@ -2,6 +2,8 @@
 
 This is a simple example project showing how you can use GitHub Actions to regularly check that your websites/projects are up and running as expected. I wrote this when I was moving a bunch of my side project domains around and I wanted to make sure I didn't break anything. (And to keep an eye on upcoming SSL certificate expirations.) This won't be as extensive as a real "uptime" monitoring service, but for side projects this free option is pretty powerful.
 
+This blog post has a description of the overall project: [How to Build a Free Website Monitor with GitHub Actions](http://www.cantoni.org/2019/12/12/free-website-monitor-github-actions).
+
 ## How it Works
 
 ### GitHub Action
