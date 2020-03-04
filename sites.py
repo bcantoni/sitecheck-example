@@ -56,7 +56,7 @@ def check_sites(verbose=False):
         contents - expected contents in page (HTTP GET), only used when expected code=200
     '''
     servers = [
-        {'url': 'http://www.readthedocs.org/', 'code': 302, 'redirect': 'http://readthedocs.org/'},
+        {'url': 'http://www.readthedocs.org/', 'code': 302, 'redirect': 'https://readthedocs.org/'},
         {'url': 'http://readthedocs.org/', 'code': 302, 'redirect': 'https://readthedocs.org/'},
         {'url': 'https://readthedocs.org/', 'code': 200, 'contents': 'Technical documentation lives here'},
 
