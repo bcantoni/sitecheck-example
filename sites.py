@@ -61,7 +61,6 @@ def check_sites(verbose=False):
         {'url': 'https://readthedocs.org/', 'code': 200, 'contents': 'Technical documentation lives here'},
 
         {'url': 'http://www.python.org/', 'code': 301, 'redirect': 'https://www.python.org/'},
-        {'url': 'http://python.org/', 'code': 301, 'redirect': 'https://python.org/'},
         {'url': 'https://www.python.org/', 'code': 200, 'contents': 'official home of the Python Programming Language'},
 
         {'url': 'http://thunderbird.net/', 'code': 301, 'redirect': 'https://thunderbird.net/'},
