@@ -3,7 +3,7 @@ name: Sites Verification
 on:
   push:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 0 * * 0'
 
 jobs:
   test:
@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Set up Python 3.9
+    - name: Set up Python
       uses: actions/setup-python@v1
       with:
         python-version: 3.9
