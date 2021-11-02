@@ -22,13 +22,13 @@ on:
 This sets up the action to run on any push and also on the cron schedule. The hours are UTC-based and in this example set to run once per day.
 
 ```
-- name: Set up Python 3.7
-    uses: actions/setup-python@v1
+- name: Set up Python
+    uses: actions/setup-python@v2
     with:
-    python-version: 3.7
+    python-version: 3.9
 ```
 
-Here we are just using Python 3.7 because we just need one (modern) environment, but if this was really testing your Python package you could specify a list of versions here (similar to what I do in my [s3data](https://github.com/bcantoni/s3data) project).
+Here we are just using Python 3.9 because we just need one (modern) environment, but if this was really testing your Python package you could specify a list of versions here (similar to what I do in my [s3data](https://github.com/bcantoni/s3data) project).
 
 ```
 - name: Install dependencies
@@ -91,7 +91,7 @@ To use this project as a starting point for your own, these are the steps:
 
 Fork this repo to your own account.
 
-Locally you'll want a Python 3.7/3.8 environment (probably easiest with a virtual environment). Install dependencies with:
+Locally you'll want a Python 3.x environment (probably easiest with a virtual environment). Install dependencies with:
 
     pip install --upgrade pip
     pip install -r requirements.txt
