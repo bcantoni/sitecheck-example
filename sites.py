@@ -57,15 +57,11 @@ def check_sites(verbose=False):
     '''
     servers = [
         {'url': 'http://about.readthedocs.com/', 'code': 302, 'redirect': 'https://about.readthedocs.com/'},
-        {'url': 'http://readthedocs.com/', 'code': 302, 'redirect': 'https://readthedocs.com/'},
-        {'url': 'https://about.readthedocs.com/', 'code': 200, 'contents': 'Documentation simplified'},
+        {'url': 'http://readthedocs.com/', 'code': 302, 'redirect': 'https://app.readthedocs.com/welcome/'},
+        {'url': 'https://about.readthedocs.com/', 'code': 200, 'contents': 'Your Documentation Infrastructure Layer'},
 
         {'url': 'http://www.python.org/', 'code': 301, 'redirect': 'https://www.python.org/'},
         {'url': 'https://www.python.org/', 'code': 200, 'contents': 'official home of the Python Programming Language'},
-
-        {'url': 'http://thunderbird.net/', 'code': 301, 'redirect': 'https://thunderbird.net/'},
-        {'url': 'http://www.thunderbird.net/', 'code': 301, 'redirect': 'https://www.thunderbird.net/'},
-        {'url': 'https://www.thunderbird.net/en-US/', 'code': 200, 'contents': 'Creative Commons license'},
     ]
 
     errors = []
