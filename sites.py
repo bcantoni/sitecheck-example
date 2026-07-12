@@ -7,7 +7,7 @@ Brian Cantoni
 
 todo:
 - move server list from here to an external yaml file
-- better controls to allow AWS, Twilio and Slack to be optional
+- better controls to allow AWS and Slack to be optional
 '''
 
 import argparse
@@ -20,7 +20,8 @@ import socket
 import ssl
 import sys
 import time
-from twilio.rest import Client as TwilioClient
+# Twilio SMS notifications are disabled by default; see README for how to re-enable.
+# from twilio.rest import Client as TwilioClient
 
 
 def ssl_expiry_datetime(hostname):
@@ -116,19 +117,20 @@ def check_sites(verbose=False):
     return(errors)
 
 
-def send_sms_messages(twilio_sid, twilio_auth_token, from_number, to_number, messages, verbose=False):
-    '''send SMS message via Twilio'''
-    client = TwilioClient(twilio_sid, twilio_auth_token)
-    for m in messages:
-        message = client.messages.create(
-            body=m,
-            from_=from_number,
-            to=to_number
-        )
-        if verbose:
-            print(message.sid)
-
-    return
+# Twilio SMS notifications are disabled by default; see README for how to re-enable.
+# def send_sms_messages(twilio_sid, twilio_auth_token, from_number, to_number, messages, verbose=False):
+#     '''send SMS message via Twilio'''
+#     client = TwilioClient(twilio_sid, twilio_auth_token)
+#     for m in messages:
+#         message = client.messages.create(
+#             body=m,
+#             from_=from_number,
+#             to=to_number
+#         )
+#         if verbose:
+#             print(message.sid)
+#
+#     return
 
 
 def send_slack_messages(slack_webhook_url, messages, verbose=False):
@@ -192,14 +194,15 @@ if __name__ == '__main__':
 
             if args.verbose:
                 print("CI mode")
-            send_sms_messages(
-                os.environ['TWILIO_ACCOUNT_SID'],
-                os.environ['TWILIO_AUTH_TOKEN'],
-                os.environ['TWILIO_FROM_NUMBER'],
-                os.environ['TWILIO_TO_NUMBER'],
-                msg,
-                args.verbose,
-            )
+            # Twilio SMS notifications are disabled by default; see README for how to re-enable.
+            # send_sms_messages(
+            #     os.environ['TWILIO_ACCOUNT_SID'],
+            #     os.environ['TWILIO_AUTH_TOKEN'],
+            #     os.environ['TWILIO_FROM_NUMBER'],
+            #     os.environ['TWILIO_TO_NUMBER'],
+            #     msg,
+            #     args.verbose,
+            # )
             send_slack_messages(
                 os.environ['SLACK_WEBHOOK'],
                 msg,

@@ -71,11 +71,17 @@ optional arguments:
   --delete, -d   Delete existing stored data
 ```
 
-### Twilio Integration
+### Twilio Integration (disabled by default)
 
-GitHub Actions will send you an email when you have a failing run. In the case of a site being down I wanted to find out more quickly, so I set up Twilio to text my own phone with any errors.
+GitHub Actions will send you an email when you have a failing run. In the case of a site being down I originally wanted to find out more quickly, so I set up Twilio to text my own phone with any errors. That SMS integration is now disabled by default (I rely on Slack instead - see below), but the code is still in `sites.py`, just commented out, so you can bring it back if you want a text alert too.
 
-To use this with Twilio, you'll need to 'buy' a number (or use one you already have). You'll need your Account SID and Auth Token as well.
+To re-enable Twilio SMS notifications:
+
+1. In `sites.py`, uncomment the `from twilio.rest import Client as TwilioClient` import, the `send_sms_messages()` function, and the call to `send_sms_messages(...)` inside the `--ci` block of `__main__`.
+2. In `requirements.txt`, uncomment the `twilio` line and reinstall dependencies (`pip install -r requirements.txt`).
+3. In `.github/workflows/pythonapp.yml`, uncomment the four `TWILIO_*` entries under `env:` in the "Test with sites.py" step.
+4. 'Buy' a Twilio number (or use one you already have), then grab your Account SID and Auth Token from the Twilio console.
+5. Set these as repo secrets in GitHub: `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`, `TWILIO_FROM_NUMBER`, `TWILIO_TO_NUMBER`.
 
 ### Slack Integration
 
@@ -98,7 +104,7 @@ Locally you'll want a Python 3.x environment (probably easiest with a virtual en
 
 Now you can edit `sites.py` to put your own sites and/or checks you want to make.
 
-If you're using Twilio, set up these environment variables (secrets) in GitHub: TWILIO_AUTH_TOKEN, TWILIO_ACCOUNT_SID, TWILIO_FROM_NUMBER and TWILIO_TO_NUMBER. If you don't want to use Twilio, remove the code for `send_sms_messages`.
+Twilio SMS notifications are disabled by default (the code is commented out in `sites.py`). If you'd like to use it, see the "Twilio Integration" section above for how to uncomment the code and set up the required secrets.
 
 If you're using Slack, set up the SLACK_WEBHOOK secret in GitHub. If you don't want to use Slack, remove the code for `send_slack_messages`. 
 

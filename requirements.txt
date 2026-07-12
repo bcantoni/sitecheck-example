@@ -1,4 +1,4 @@
 flake8
 requests
 -e git+https://github.com/bcantoni/s3data.git#egg=s3data
-twilio
+# twilio  # uncomment to re-enable SMS notifications, see README
